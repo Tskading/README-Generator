@@ -11,27 +11,59 @@ const userPrompt = () =>
 inquirer.prompt([
     {
         type: 'input',
-        message: "What is the title of your project?",
-        name: 'title'
+        name: 'title',
+        message: 'What is the title of your project?'
     },
-    
+    {
+        type: 'input',
+        name: 'description',
+        message: 'This is where you insert your project description -->'
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'Please describe your projects installation process here -->'
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Enter your projects usage information here -->'
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Which license would you like to add to your project?',
+        choices: ['MIT', 'GPL 3.0', 'Apache 2.0']
+    },
+    {
+        type: 'input',
+        name: 'contributing',
+        message: 'What is the best way to contribute to your project?'
+    },
+      {
+        type: 'input',
+        name: 'test',
+        message: 'Input your testing instructions here -->'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Get your email onto the README by typing here -->'
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Enter your Github user name here -->'
+    },
+  
 ])
-
-
-// function to write README file
-function writeToFile(fileName, data) {
-    // use fs here
-}
 
 // function to initialize program
 function init() {
-    // call inquirer
-// inquirer.prompt(userPrompt)
-
-userPrompt()
-  .then((data) => writeFileAsync('testreadme.md', generateMarkdown(data)))
-  .then(() => console.log('Successfully wrote to testreadme.md'))
-  .catch((err) => console.error(err));
+    userPrompt()
+        .then((data) => writeFileAsync('testreadme.md', generateMarkdown(data)))
+        .then(() => console.log('Successfully wrote to testreadme.md'))
+        .catch((err) => console.error(err));
 }
 
 // function call to initialize program
