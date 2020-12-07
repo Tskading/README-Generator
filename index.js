@@ -33,7 +33,7 @@ inquirer.prompt([
         type: 'list',
         name: 'license',
         message: 'Which license would you like to add to your project?',
-        choices: ['MIT', 'GPL-3.0', 'Apache-2.0']
+        choices: ['MIT', 'GPL 3.0', 'Apache-2.0']
     },
     {
         type: 'input',
@@ -61,8 +61,8 @@ inquirer.prompt([
 // function to initialize program
 function init() {
     userPrompt()
-        .then((data) => writeFileAsync('testreadme.md', generateMarkdown(data)))
-        .then(() => console.log('Successfully wrote to testreadme.md'))
+        .then((data) => writeFileAsync('myREADME.md', generateMarkdown(data)))
+        .then(() => console.log('Successfully wrote to myREADME.md'))
         .catch((err) => console.error(err));
 }
 
